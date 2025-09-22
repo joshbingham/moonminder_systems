@@ -373,30 +373,21 @@ details[open] .nav-menu {
 
 /* Target Safari desktop and iOS */
 @supports (-webkit-touch-callout: none) {
-  
-  /* Fix background image zoom/blurriness */
   body {
-    background-size: contain;   /* keeps image sharp */
-    background-position: center top;
-    background-attachment: scroll; /* fixed can be glitchy in Safari */
-  }
-
-  /* Adjust about section image */
-  .about-image {
-    width: 80%;   /* prevent Safari from stretching too much */
-    height: auto;
-  }
-
-  .history-image img,
-  .team-member img {
-    width: 90%;
-    height: auto;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: scroll;
   }
 
   .about,
   .meet-the-team,
   .history,
   .contact-us {
-    padding: 1.5rem;
+    margin: 20px auto;
+    padding: 2rem;
+    max-width: 1200px;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
   }
 }
