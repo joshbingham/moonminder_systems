@@ -371,23 +371,33 @@ details[open] .nav-menu {
   }
 }
 
-/* Target Safari desktop and iOS */
-@supports (-webkit-touch-callout: none) {
+/* Safari-only overrides */
+@supports (-webkit-touch-callout: none) and (not (overflow: -webkit-paged-x)) {
+  /* 1. Fix background-attachment on iOS Safari */
   body {
-    background-size: cover;
-    background-position: top center;
     background-attachment: scroll;
+    background-position: top center;
   }
 
-  .about,
-  .meet-the-team,
-  .history,
-  .contact-us {
-    margin: 20px auto;
-    padding: 2rem;
-    max-width: 1200px;
-    background-color: rgba(0,0,0,0.8);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
+  /* 2. Force flex containers to respect min-height in Safari */
+  .team-container,
+  .history-container {
+    /* Safari sometimes ignores flex children min-height */
+    min-height: 0;
+  }
+
+  /* 3. Tweak any flickering or text-render differences */
+  header h1,
+  .about h2,
+  .meet-the-team h2,
+  .history h2,
+  .contact-us h2 {
+    /* subtle anti-aliasing adjustment */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 4. If your dropdown mispositions in Safari */
+  details[open] .nav-menu {
+    transform: translateX(0) !important;
   }
 }
