@@ -375,8 +375,9 @@ details[open] .nav-menu {
 @supports (-webkit-touch-callout: none) and (not (overflow: -webkit-paged-x)) {
   /* 1. Fix background-attachment on iOS Safari */
   body {
-    background-attachment: scroll;
-    background-position: top center;
+    background-image: none;                 /* remove image */
+    background-color: #0b0c0f;             /* dark space-like fallback */
+    background-attachment: scroll; 
   }
 
   /* 2. Force flex containers to respect min-height in Safari */
