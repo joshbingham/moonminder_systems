@@ -1,5 +1,4 @@
 /* Universal Styles */
-
 body {
   background-image: url("./images/background-img.jpg");
   background-size: cover;
@@ -372,15 +371,32 @@ details[open] .nav-menu {
   }
 }
 
-/* Safari 9+ (desktop and iOS) */
+/* Target Safari desktop and iOS */
 @supports (-webkit-touch-callout: none) {
+  
+  /* Fix background image zoom/blurriness */
   body {
-    background-size: auto 100%; /* prevent over-zooming */
+    background-size: contain;   /* keeps image sharp */
     background-position: center top;
     background-attachment: scroll; /* fixed can be glitchy in Safari */
   }
 
+  /* Adjust about section image */
   .about-image {
-    width: 80%;
+    width: 80%;   /* prevent Safari from stretching too much */
+    height: auto;
+  }
+
+  .history-image img,
+  .team-member img {
+    width: 90%;
+    height: auto;
+  }
+
+  .about,
+  .meet-the-team,
+  .history,
+  .contact-us {
+    padding: 1.5rem;
   }
 }
