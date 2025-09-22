@@ -1,4 +1,5 @@
 /* Universal Styles */
+
 body {
   background-image: url("./images/background-img.jpg");
   background-size: cover;
@@ -368,5 +369,18 @@ details[open] .nav-menu {
 @media (min-width: 768px) {
   .about-image {
     width: 60%;
+  }
+}
+
+/* Safari 9+ (desktop and iOS) */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-size: auto 100%; /* prevent over-zooming */
+    background-position: center top;
+    background-attachment: scroll; /* fixed can be glitchy in Safari */
+  }
+
+  .about-image {
+    width: 80%;
   }
 }
